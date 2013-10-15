@@ -39,7 +39,8 @@ int main( )
 		cout << "                      1. Play  NIM" << endl;
 		cout << "                      2. How to play NIM" << endl;
 		cout << "                      3. Quit " << endl << endl;
-		cout << "                      Choose 1, 2 or 3:" << endl << endl;
+                cout << "                      4. Authors of project " << endl << endl;
+		cout << "                      Choose 1, 2, 3 eda 4:" << endl << endl;
 		cin >> val;
 		switch ( val )
 		{
@@ -51,6 +52,9 @@ int main( )
 			break;
 		case 3:
 			break;
+                case 4:
+                        cout << "The authors of this project are  Karitas Olafsdottir and Johanna Dora Ingolfsdottir" << endl;
+                        break;
 		}
 	}
 	while ( val != 3 );
