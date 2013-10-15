@@ -38,8 +38,9 @@ int main( )
 		cout << "                ADALVALMYND " << endl << endl;
 		cout << "                      1. Spila NIM" << endl;
 		cout << "                      2. Birta reglurnar i NIM" << endl;
-		cout << "                      3. Haetta " << endl << endl;
-		cout << "                      Veldu 1, 2 eda 3:" << endl << endl;
+		cout << "                      3. Haetta "  << endl;
+                cout << "                      4. Hofundar verkefnis " << endl << endl;
+		cout << "                      Veldu 1, 2, 3 eda 4:" << endl << endl;
 		cin >> val;
 		switch ( val )
 		{
@@ -51,6 +52,9 @@ int main( )
 			break;
 		case 3:
 			break;
+                case 4:
+                        cout << "Hofundar verkefnis eru Karitas Olafsdottir og Johanna Dora Ingolfsdottir" << endl;
+                        break;
 		}
 	}
 	while ( val != 3 );
