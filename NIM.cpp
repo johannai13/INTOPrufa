@@ -35,11 +35,11 @@ int main( )
 	do
 	{
 		cout << endl << endl << endl;
-		cout << "                ADALVALMYND " << endl << endl;
-		cout << "                      1. Spila NIM" << endl;
-		cout << "                      2. Birta reglurnar i NIM" << endl;
-		cout << "                      3. Haetta " << endl << endl;
-		cout << "                      Veldu 1, 2 eda 3:" << endl << endl;
+		cout << "                MAIN MENU " << endl << endl;
+		cout << "                      1. Play  NIM" << endl;
+		cout << "                      2. How to play NIM" << endl;
+		cout << "                      3. Quit " << endl << endl;
+		cout << "                      Choose 1, 2 or 3:" << endl << endl;
 		cin >> val;
 		switch ( val )
 		{
@@ -62,16 +62,16 @@ void spila( )
 {
 	int hruga[ 10 ];
 	cout << "*-------------------------------------------------------*" << endl;
-	cout << "                   NU SPILUM VID NIM!!" << endl;
+	cout << "                   NOW WE PLAY NIM!!" << endl;
 	cout << "*-------------------------------------------------------*" << endl;
 	cout << endl << endl;
-	cout << "Veljum med hve margar hrugur vid spilum. " << endl;
-	cout << "Yttu a einhvern lykil: " << endl;
+	cout << "Choose how many piles we want to play. " << endl;
+	cout << "Press any key: " << endl;
 
 	srand( time( 0 ) );	
 
 	hrugufjoldi = ( (rand( ) % 8 ) + 2 );
-	cout << "Vid spilum med " << hrugufjoldi << " hrugur. " << endl;
+	cout << "We play with " << hrugufjoldi << " piles. " << endl;
 
 	for ( int i = 0; i < hrugufjoldi; i++ )
 	{
@@ -93,18 +93,18 @@ void spila( )
 
 void hjalp( )
 {
-	cout << "              UM NIM - LEIKINN " << endl << endl;
-	cout << "Leikurinn NIM er upprunninn fra Asiu thar sem hann var" << endl;
-	cout << "leikinn med steinvolum.  Reglurnar eru thessar: " << endl;
-	cout << "Keppendur setja einhvern fjolda af eldspytum i hrugur " << endl;
-	cout << "(their akveda sjalfir hve margar hrugur og hve margar " << endl;
-	cout << "eldspytur i hverri hrugu) og skiptast svo a um ad " << endl;
-	cout << "draga eldspytur ur einhverri hrugunni.  Their mega " << endl;
-	cout << "taka eina eldspytu, nokkrar eda allar ur einni " << endl;
-	cout << "hrugunni en their mega aldrei taka ur fleiri en " << endl;
-	cout << "einni hrugu i einu.  Sa sem tekur sidustu eldspytuna " << endl;
-	cout << "ur sidustu hrugunni vinnur.  Gangi ykkur vel! " << endl << endl;
-	cout << "Sladu a einhvern lykil... " << endl;
+	cout << "              AOUT THE NIM - GAME " << endl << endl;
+	cout << "Nim is originally from Asia where it was " << endl;
+	cout << "played with pebbles. The rules are: " << endl;
+	cout << "Players put any amout of matches in piles " << endl;
+	cout << "(they decide themselves how many piles and how many " << endl;
+	cout << "matches are in a pile) and then take turns at " << endl;
+	cout << "drawing matches from one of the piles. They can " << endl;
+	cout << "take one match, a couple or all of them from one " << endl;
+	cout << "pile, but they can never draw matches from more than " << endl;
+	cout << "one pile at a time. The one who takes the last match " << endl;
+	cout << "from the last pile wins. Good luck!" << endl << endl;
+	cout << "Press any key... " << endl;
 	getchar( );
 }
 
@@ -114,14 +114,14 @@ void birta( int* hruga )
 	{
 		return;
 	}
-	cout << "                         Hruga nr.: ";
+	cout << "                         Pile number.: ";
 	for (int i = 0; i < hrugufjoldi; i++ )
 	{
 		cout << " " << (i + 1) << "  ";
 	}
 
 	cout << endl << endl;
-	cout << "Fjoldi eldspytna i hverri hrugu er: ";
+	cout << "The amont of matches in every pile is: ";
 	for ( int c = 0; c < hrugufjoldi; c++ )
 	{
 		if( hruga[c] < 10 )
@@ -146,24 +146,24 @@ void notandi( int* hruga )
 	int hrugunumer;
 	do
 	{
-		cout << "Sladu inn hve margar eldspytur thu vilt taka: ";
+		cout << "How many matches do you want to take? ";
 		cin >> eldspytur;
 		cout << endl;
 		if( eldspytur < 1 )
 		{
-			cout << "Thu verdur ad taka a.m.k. eina eldspytu. Veldu aftur. " << endl << endl;
+			cout << "You must take at least one match. Try again. " << endl << endl;
 			continue;
 		}
-		cout << "Sladu inn ur hvada hrugu: ";
+		cout << "Say which pile you wish to draw from: ";
 		cin  >> hrugunumer;
 		if( hrugunumer > hrugufjoldi )
 		{
-			cout << "Thad er engin hruga med thessu numeri.  Veldu aftur." <<endl<<endl;
+			cout << "There is no pile with that number. Try again." <<endl<<endl;
 			continue;
 		}
 		if( eldspytur > hruga[ (hrugunumer) - 1 ] )
 		{
-			cout <<"Thad eru ekki nogu margar eldspytur eftir i hrugunni. Veldu aftur."<<endl<<endl;
+			cout <<"There are not enough matches left in the pile."<<endl<<endl;
 			continue;
 		}
 	}
@@ -172,8 +172,8 @@ void notandi( int* hruga )
 	hruga[ hrugunumer - 1 ] -= eldspytur;
 	if( !samtals( hruga ) )
 	{
-		cout << endl << "Thu vannst.  Til hamingju!" << endl << endl;
-		cout << "Sladu a einhvern lykil... " << endl;
+		cout << endl << "You won. Congratulations!" << endl << endl;
+		cout <<  "Press any key... " << endl;
 		getchar( );
 	}
 	cout << endl;
@@ -202,19 +202,19 @@ void tolva( int* hruga )
 
 	if ( eldspytur > 1 )
 	{
-		cout << "      Eg tek " << eldspytur << " eldspytur ur hrugu nr. ";
+		cout << "      I draw " << eldspytur << " mathces from pile number ";
 	}
 	else 
 	{
-		cout << "      Eg tek " << eldspytur << " eldspytu ur hrugu nr. ";
+		cout << "      I draw " << eldspytur << " match from pile number ";
 	}
 	cout << hrugunumer << "." << endl;
 
 	hruga[ (hrugunumer) - 1 ] -= eldspytur;
 	if( !samtals( hruga ) )
 	{
-		cout << endl << "Eg vann.  Thad gengur bara betur naest!" << endl << endl;
-		cout << "Sladu a einhvern lykil...   " << endl;
+		cout << endl << "I won. Better luck next time!" << endl << endl;
+		cout << " Press any key...   " << endl;
 		getchar( );
 	}
 	cout << endl;
